@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+# SignSpeak – AI-Based Assistive Communication System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SignSpeak is an AI-powered assistive communication platform designed to help people with hearing and speech impairments communicate more effectively.  
+The system converts multiple types of user inputs such as text, images, and hand gestures into sign language representations using artificial intelligence.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Text to Sign Language Processing
+- Image to Text Extraction using OCR
+- Hand Sign Recognition using Deep Learning
+- Multi-modal Input Support
+- AI-based Natural Language Processing
+- Simple and User-Friendly Interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Frontend
+- React
+- JavaScript
+- Vite
+- HTML / CSS
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Backend
+- FastAPI
+- Python
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### AI & Machine Learning
+- TensorFlow (CNN model for hand sign recognition)
+- spaCy (Natural Language Processing)
+- OpenCV (Image Processing)
+- Tesseract OCR (Text extraction from images)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## System Architecture
+
+```
+Frontend (React)
+      │
+      │ API Requests
+      ▼
+Backend (FastAPI)
+      │
+      ├── Text Processing (spaCy NLP)
+      │
+      ├── OCR Processing (OpenCV + Tesseract)
+      │
+      └── Hand Sign Recognition (TensorFlow CNN)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## How It Works
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. User provides input such as text, speech, or image.
+2. Frontend sends the input to the backend through API requests.
+3. Backend processes the data using AI models.
+4. The processed output is converted into sign language representations.
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/signspeak.git
+cd signspeak
 ```
+
+### Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## Future Improvements
+
+- Real-time hand gesture recognition using webcam
+- Speech to sign language conversion
+- Mobile application support
+- Improved AI model accuracy
+
+---
+
+## Purpose
+
+The goal of this project is to reduce communication barriers and make communication easier for people with hearing and speech impairments using artificial intelligence.
